@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 
 export default function Home() {
 	return (
@@ -10,7 +9,7 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div className="bg-blue-800">checking</div>
+			<div className="h-screen bg-pinterest-pink">checking</div>
 		</>
 	);
 }
