@@ -12,23 +12,19 @@ export const headerColors = {
 
 const Header = () => {
 	return (
-		<header className="sticky top-0 z-20 w-full flexBetweenCenter py-5 px-6 transition-all duration-500  bg-pinterest-pink group hover:bg-pinterest-fluorescent">
+		<header className="sticky top-0 z-20 w-full flexBetweenCenter py-5 px-6 transition-all duration-500  bg-pinterest-pink text-pinterest-fluorescent group hover:bg-pinterest-fluorescent">
 			<div className="flexStartCenter gap-1">
 				<PinterestLogo
 					width={32}
 					height={32}
 					className="fill-pinterest-fluorescent group-hover:fill-pinterest-pink"
 				/>
-				<h2
-					className={`text-lg text-pinterest-fluorescent group-hover:text-pinterest-pink`}
-				>
-					Careers
-				</h2>
+				<h2 className={`text-lg  group-hover:text-pinterest-pink`}>Careers</h2>
 			</div>
 
 			<Link
 				href={"/"}
-				className="flexCenterCenter  border-2 px-3 py-1 rounded-full text-pinterest-fluorescent group-hover:text-pinterest-pink group-hover:border-pinterest-pink"
+				className="flexCenterCenter  border-2 px-3 py-1 rounded-full group-hover:text-pinterest-pink group-hover:border-pinterest-pink"
 			>
 				All Jobs
 			</Link>
