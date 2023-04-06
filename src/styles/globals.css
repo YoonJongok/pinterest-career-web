@@ -18,6 +18,11 @@
 	justify-content: space-between;
 	align-items: center;
 }
+.flexAroundCenter {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
 
 .flexStartCenter {
 	display: flex;
