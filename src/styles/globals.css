@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.firstPageHeader {
+		@apply bg-pinterest-pink hover:bg-pinterest-fluorescent fill-pinterest-fluorescent hover:fill-pinterest-pink text-pinterest-fluorescent  hover:text-pinterest-pink hover:border-pinterest-pink;
+	}
+	.firstPageLink {
+		@apply flexCenterCenter  border-2 px-3 py-1 rounded-full border-pinterest-fluorescent group-hover:border-pinterest-pink;
+	}
+	.secondPageHeader {
+		@apply bg-pinterest-light-sky-blue hover:bg-pinterest-light-brown  fill-pinterest-light-brown hover:fill-pinterest-light-sky-blue text-pinterest-light-brown  hover:text-pinterest-light-sky-blue hover:border-transparent;
+	}
+	.secondPageLink {
+		@apply flexCenterCenter  border-2 px-3 py-1 rounded-full border-pinterest-light-brown group-hover:border-pinterest-light-sky-blue;
+	}
+}
+
 .flexAlignCenter {
 	display: flex;
 	align-items: center;

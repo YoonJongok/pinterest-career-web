@@ -20,6 +20,8 @@ module.exports = {
 				"pinterest-light-orange": "#FFE4C1",
 				"pinterest-turquoise": "#1F4C71",
 				"pinterest-brown": "#621C34",
+				"pinterest-light-brown": "#933A20",
+				"pinterest-light-sky-blue": "#CDF3FD",
 			},
 		},
 	},

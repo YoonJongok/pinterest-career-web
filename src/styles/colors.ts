@@ -9,4 +9,6 @@ export const themeColors = {
 	lightOrange: "#FFE4C1",
 	turquoise: "#1F4C71",
 	brown: "#621C34",
+	lightSkyBlue: "#CDF3FD",
+	lightBrown: "#933A20",
 };
