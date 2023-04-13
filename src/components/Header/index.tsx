@@ -1,8 +1,15 @@
 import Link from "next/link";
 import React from "react";
 import PinterestLogo from "../../../public/logo.svg";
+import { PageColors } from "@/pages";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+	pageColorConfig: PageColors;
+}
+
+const Header: React.FC<HeaderProps> = ({
+	pageColorConfig: { primary, accent },
+}) => {
 	return (
 		<header className="secondPageHeader sticky top-0 z-20 w-full flexBetweenCenter py-5 px-6 transition-all duration-500  group">
 			<div className="flexStartCenter gap-1">

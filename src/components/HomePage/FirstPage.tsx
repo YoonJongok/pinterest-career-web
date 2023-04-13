@@ -1,7 +1,5 @@
-import React from "react";
-import CustomImage, { CustomImageProps } from "../../CustomImage";
-import { themeColors } from "@/styles/colors";
-import Header from "@/components/Header";
+import React, { FC, MutableRefObject, forwardRef } from "react";
+import CustomImage, { CustomImageProps } from "../CustomImage";
 
 const imageWidth = 194;
 
@@ -83,58 +81,62 @@ export const thirdColumnImagesConfig = [
 	FirstPageImages.park,
 ];
 
-const FirstPage = () => {
+const FirstPage: React.ForwardRefRenderFunction<HTMLDivElement> = (
+	props,
+	ref
+) => {
 	return (
-		<>
-			<main className=" h-screen flex bg-pinterest-pink text-pinterest-fluorescent">
-				<section className="w-1/2 flexCenterCenter flex-col gap-3 px-10 text-center font-normal">
-					<h1 className="text-5xl">Warsaw</h1>
-					<p className="text-xl">
-						Where sweeping skyscrapers and rich history unite in harmony <br />
-						Explore open positions.
-					</p>
-				</section>
-				<section className="w-1/2 h-full flexAroundCenter">
-					<div>
-						{firstColumnImagesConfig.map((image) => (
-							<CustomImage
-								key={image.alt}
-								size={image.size}
-								src={image.src}
-								alt={image.alt}
-								className={image.className}
-								position={image.position}
-							/>
-						))}
-					</div>
-					<div>
-						{secondColumnImagesConfig.map((image) => (
-							<CustomImage
-								key={image.alt}
-								size={image.size}
-								src={image.src}
-								alt={image.alt}
-								className={image.className}
-								position={image.position}
-							/>
-						))}
-					</div>
-					<div>
-						{thirdColumnImagesConfig.map((image) => (
-							<CustomImage
-								key={image.alt}
-								size={image.size}
-								src={image.src}
-								alt={image.alt}
-								className={image.className}
-								position={image.position}
-							/>
-						))}
-					</div>
-				</section>
-			</main>
-		</>
+		<section
+			ref={ref}
+			className=" h-screen flex bg-pinterest-pink text-pinterest-fluorescent"
+		>
+			<div className="w-1/2 flexCenterCenter flex-col gap-3 px-10 text-center font-normal">
+				<h1 className="text-5xl">Warsaw</h1>
+				<p className="text-xl">
+					Where sweeping skyscrapers and rich history unite in harmony <br />
+					Explore open positions.
+				</p>
+			</div>
+			<div className="w-1/2 h-full flexAroundCenter">
+				<div>
+					{firstColumnImagesConfig.map((image) => (
+						<CustomImage
+							key={image.alt}
+							size={image.size}
+							src={image.src}
+							alt={image.alt}
+							className={image.className}
+							position={image.position}
+						/>
+					))}
+				</div>
+				<div>
+					{secondColumnImagesConfig.map((image) => (
+						<CustomImage
+							key={image.alt}
+							size={image.size}
+							src={image.src}
+							alt={image.alt}
+							className={image.className}
+							position={image.position}
+						/>
+					))}
+				</div>
+				<div>
+					{thirdColumnImagesConfig.map((image) => (
+						<CustomImage
+							key={image.alt}
+							size={image.size}
+							src={image.src}
+							alt={image.alt}
+							className={image.className}
+							position={image.position}
+						/>
+					))}
+				</div>
+			</div>
+		</section>
 	);
 };
 
-export default FirstPage;
+export default React.forwardRef(FirstPage);

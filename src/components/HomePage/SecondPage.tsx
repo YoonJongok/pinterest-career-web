@@ -1,5 +1,3 @@
-import Header from "@/components/Header";
-import { themeColors } from "@/styles/colors";
 import React from "react";
 
 const secondPageTextConfig = [
@@ -8,21 +6,29 @@ const secondPageTextConfig = [
 	"Explore one of Europe’s largest city parks by gondola",
 ];
 
-const SecondPage = () => {
+const SecondPage: React.ForwardRefRenderFunction<HTMLDivElement> = (
+	props,
+	ref
+) => {
+	// console.log("ref", ref);
+	// console.log("hi");
 	return (
 		<>
-			<main className="h-screen flexAroundCenter gap-6 bg-pinterest-light-sky-blue text-pinterest-light-brown px-8">
+			<section
+				ref={ref}
+				className="h-screen flexAroundCenter gap-6 bg-pinterest-light-sky-blue text-pinterest-light-brown px-8"
+			>
 				{secondPageTextConfig.map((text, i) => (
-					<section
+					<div
 						key={i}
 						className="flexCenterCenter pt-6 border-t-4 border-t-pinterest-light-brown text-3xl"
 					>
 						<p>{text}</p>
-					</section>
+					</div>
 				))}
-			</main>
+			</section>
 		</>
 	);
 };
 
-export default SecondPage;
+export default React.forwardRef(SecondPage);

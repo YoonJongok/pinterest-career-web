@@ -1,10 +1,79 @@
 import CustomImage from "@/components/CustomImage";
+import Header from "@/components/Header";
 import FirstPage from "@/components/HomePage/FirstPage";
 import SecondPage from "@/components/HomePage/SecondPage";
+import ThirdPage from "@/components/HomePage/ThridPage";
+import { themeColors } from "@/styles/colors";
+
 import Head from "next/head";
-import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+export type Page =
+	| "firstPage"
+	| "secondPage"
+	| "thirdPage"
+	| "fourthPage"
+	| "fifthPage";
+
+export type PageColors = { primary: string; accent: string };
+
+export const pageColorsConfig: Record<Page, PageColors> = {
+	firstPage: {
+		primary: "pinterest-pink",
+		accent: "pinterest-fluorescent",
+	},
+	secondPage: {
+		primary: "pinterest-light-sky-blue",
+		accent: "pinterest-light-brown",
+	},
+	thirdPage: {
+		primary: "pinterest-sky-blue",
+		accent: "pinterest-violet",
+	},
+	fourthPage: {
+		primary: "pinterest-light-yellow",
+		accent: "pinterest-purple",
+	},
+	fifthPage: {
+		primary: "pinterest-light-orange",
+		accent: "pinterest-turquoise",
+	},
+};
 
 export default function Home() {
+	const [pageColorConfig, setPageColorConfig] = useState<PageColors>(
+		pageColorsConfig["firstPage"]
+	);
+
+	const firstPageRef = useRef<HTMLDivElement>(null);
+	const secondPageRef = useRef<HTMLDivElement>(null);
+	const thirdPageRef = useRef<HTMLDivElement>(null);
+
+	const handleSetPageColor = useCallback(() => {
+		if (window.scrollY >= firstPageRef.current?.offsetTop!) {
+			setPageColorConfig(pageColorsConfig["firstPage"]);
+		}
+		if (
+			window.scrollY >
+			secondPageRef.current?.offsetTop! - window.outerHeight / 3
+		) {
+			setPageColorConfig(pageColorsConfig["secondPage"]);
+		}
+		if (
+			window.scrollY >
+			thirdPageRef.current?.offsetTop! - window.outerHeight / 3
+		) {
+			setPageColorConfig(pageColorsConfig["thirdPage"]);
+		}
+	}, [setPageColorConfig, secondPageRef, firstPageRef, thirdPageRef]);
+
+	useEffect(() => {
+		// console.log(firstPageRef.current?.offsetTop);
+		// console.log(secondPageRef.current?.offsetTop);
+
+		window.addEventListener("scroll", handleSetPageColor);
+	}, [handleSetPageColor]);
+
 	return (
 		<>
 			<Head>
@@ -13,8 +82,12 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<FirstPage />
-			<SecondPage />
+			<Header pageColorConfig={pageColorConfig} />
+			<main>
+				<FirstPage ref={firstPageRef} />
+				<SecondPage ref={secondPageRef} />
+				<ThirdPage ref={thirdPageRef} />
+			</main>
 		</>
 	);
 }

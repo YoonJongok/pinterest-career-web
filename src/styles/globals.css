@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-	.firstPageHeader {
+	.firstPageHeader1 {
 		@apply bg-pinterest-pink hover:bg-pinterest-fluorescent fill-pinterest-fluorescent hover:fill-pinterest-pink text-pinterest-fluorescent  hover:text-pinterest-pink hover:border-pinterest-pink;
 	}
 	.firstPageLink {

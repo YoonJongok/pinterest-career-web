@@ -5,7 +5,9 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
-	return <div className="w-full h-full min-h-screen">{children}</div>;
+	return (
+		<div className="w-full h-full min-h-screen transition-all">{children}</div>
+	);
 };
 
 export default Layout;
