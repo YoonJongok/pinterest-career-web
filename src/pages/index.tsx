@@ -14,35 +14,10 @@ export type Page =
 	| "fourthPage"
 	| "fifthPage";
 
-export type PageColors = { primary: string; accent: string };
-
-export const pageColorsConfig: Record<Page, PageColors> = {
-	firstPage: {
-		primary: "pinterest-pink",
-		accent: "pinterest-fluorescent",
-	},
-	secondPage: {
-		primary: "pinterest-light-sky-blue",
-		accent: "pinterest-light-brown",
-	},
-	thirdPage: {
-		primary: "pinterest-sky-blue",
-		accent: "pinterest-violet",
-	},
-	fourthPage: {
-		primary: "pinterest-light-yellow",
-		accent: "pinterest-purple",
-	},
-	fifthPage: {
-		primary: "pinterest-light-orange",
-		accent: "pinterest-turquoise",
-	},
-};
+export const HEADER_HEIGHT = 70;
 
 export default function Home() {
-	const [pageColorConfig, setPageColorConfig] = useState<PageColors>(
-		pageColorsConfig["firstPage"]
-	);
+	const [page, setPage] = useState<Page>("firstPage");
 
 	const firstPageRef = useRef<HTMLDivElement>(null);
 	const secondPageRef = useRef<HTMLDivElement>(null);
@@ -50,21 +25,21 @@ export default function Home() {
 
 	const handleSetPageColor = useCallback(() => {
 		if (window.scrollY >= firstPageRef.current?.offsetTop!) {
-			setPageColorConfig(pageColorsConfig["firstPage"]);
+			setPage("firstPage");
 		}
 		if (
 			window.scrollY >
-			secondPageRef.current?.offsetTop! - window.outerHeight / 3
+			secondPageRef.current?.offsetTop! - window.outerHeight / 6 + HEADER_HEIGHT
 		) {
-			setPageColorConfig(pageColorsConfig["secondPage"]);
+			setPage("secondPage");
 		}
 		if (
 			window.scrollY >
-			thirdPageRef.current?.offsetTop! - window.outerHeight / 3
+			thirdPageRef.current?.offsetTop! - window.outerHeight / 6 + HEADER_HEIGHT
 		) {
-			setPageColorConfig(pageColorsConfig["thirdPage"]);
+			setPage("thirdPage");
 		}
-	}, [setPageColorConfig, secondPageRef, firstPageRef, thirdPageRef]);
+	}, [setPage, secondPageRef, firstPageRef, thirdPageRef]);
 
 	useEffect(() => {
 		window.addEventListener("scroll", handleSetPageColor);
@@ -78,7 +53,7 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Header />
+			<Header page={page} />
 			<main>
 				<FirstPage ref={firstPageRef} />
 				<SecondPage ref={secondPageRef} />
