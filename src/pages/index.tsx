@@ -1,10 +1,9 @@
+import Button from "@/components/Button";
 import CustomImage from "@/components/CustomImage";
 import Header from "@/components/Header";
 import FirstPage from "@/components/HomePage/FirstPage";
 import SecondPage from "@/components/HomePage/SecondPage";
 import ThirdPage from "@/components/HomePage/ThridPage";
-import { themeColors } from "@/styles/colors";
-
 import Head from "next/head";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -68,9 +67,6 @@ export default function Home() {
 	}, [setPageColorConfig, secondPageRef, firstPageRef, thirdPageRef]);
 
 	useEffect(() => {
-		// console.log(firstPageRef.current?.offsetTop);
-		// console.log(secondPageRef.current?.offsetTop);
-
 		window.addEventListener("scroll", handleSetPageColor);
 	}, [handleSetPageColor]);
 

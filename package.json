@@ -2,6 +2,11 @@
 	"name": "pinterest-career-web",
 	"version": "0.1.0",
 	"private": true,
+	"babelMacros": {
+		"twin": {
+			"preset": "styled-components"
+		}
+	},
 	"scripts": {
 		"dev": "npm run open-browser && next dev",
 		"open-browser": "open http://localhost:3000",
@@ -19,11 +24,17 @@
 		"next": "13.2.4",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
+		"styled-components": "^5.3.9",
 		"typescript": "5.0.3"
 	},
 	"devDependencies": {
+		"@babel/plugin-syntax-typescript": "^7.21.4",
+		"@types/styled-components": "^5.1.26",
 		"autoprefixer": "^10.4.14",
+		"babel-loader": "^9.1.2",
+		"babel-plugin-macros": "^3.1.0",
 		"postcss": "^8.4.21",
-		"tailwindcss": "^3.3.1"
+		"tailwindcss": "^3.3.1",
+		"twin.macro": "^3.3.1"
 	}
 }

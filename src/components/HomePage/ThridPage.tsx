@@ -10,9 +10,9 @@ const ThirdPage: React.ForwardRefRenderFunction<HTMLDivElement> = (
 			className="h-screen flexAroundCenter gap-6 bg-pinterest-sky-blue text-pinterest-light-violet px-8"
 		>
 			<div className="w-1/2 h-full flexCenterCenter">
-				<video controls>
+				{/* <video controls>
 					<source src="https://cdn-static.findly.com/wp-content/uploads/sites/1509/2021/05/18214758/Default-Office.webm" />
-				</video>
+				</video> */}
 			</div>
 			<div className="w-1/2 flexCenterCenter flex-col gap-3 px-10 text-center font-normal">
 				<h1 className="text-5xl">Offices that inspire</h1>

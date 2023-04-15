@@ -1,5 +1,7 @@
-import React, { FC, MutableRefObject, forwardRef } from "react";
+import React from "react";
 import CustomImage, { CustomImageProps } from "../CustomImage";
+import Button from "../Button";
+import "twin.macro";
 
 const imageWidth = 194;
 
@@ -88,7 +90,7 @@ const FirstPage: React.ForwardRefRenderFunction<HTMLDivElement> = (
 	return (
 		<section
 			ref={ref}
-			className=" h-screen flex bg-pinterest-pink text-pinterest-fluorescent"
+			tw=" h-screen flex bg-pinterest-pink text-pinterest-fluorescent"
 		>
 			<div className="w-1/2 flexCenterCenter flex-col gap-3 px-10 text-center font-normal">
 				<h1 className="text-5xl">Warsaw</h1>
@@ -96,6 +98,7 @@ const FirstPage: React.ForwardRefRenderFunction<HTMLDivElement> = (
 					Where sweeping skyscrapers and rich history unite in harmony <br />
 					Explore open positions.
 				</p>
+				<Button variant="secondary">Hello</Button>
 			</div>
 			<div className="w-1/2 h-full flexAroundCenter">
 				<div>
