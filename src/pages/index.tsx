@@ -1,5 +1,3 @@
-import Button from "@/components/Button";
-import CustomImage from "@/components/CustomImage";
 import Header from "@/components/Header";
 import FirstPage from "@/components/HomePage/FirstPage";
 import SecondPage from "@/components/HomePage/SecondPage";
