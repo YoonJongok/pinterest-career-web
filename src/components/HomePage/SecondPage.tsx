@@ -1,30 +1,39 @@
 import React from "react";
+import SlideInOnScroll, { SlideFrom } from "../SlideInOnScroll";
 
-const secondPageTextConfig = [
-	"Enjoy a midday break in the sunshine of colorful Old Town",
-	"Set out on a mission to find the capital’s best Pierogi",
-	"Explore one of Europe’s largest city parks by gondola",
+const secondPageTextConfig: Array<{ text: string; slideFrom: SlideFrom }> = [
+	{
+		text: "Enjoy a midday break in the sunshine of colorful Old Town",
+		slideFrom: "left",
+	},
+	{
+		text: "Set out on a mission to find the capital’s best Pierogi",
+		slideFrom: "bottom",
+	},
+	{
+		text: "Explore one of Europe’s largest city parks by gondola",
+		slideFrom: "right",
+	},
 ];
 
 const SecondPage: React.ForwardRefRenderFunction<HTMLDivElement> = (
 	props,
 	ref
 ) => {
-	// console.log("ref", ref);
-	// console.log("hi");
 	return (
 		<>
 			<section
 				ref={ref}
 				className="h-screen flexAroundCenter gap-6 bg-pinterest-light-sky-blue text-pinterest-light-brown px-8"
 			>
-				{secondPageTextConfig.map((text, i) => (
-					<div
+				{secondPageTextConfig.map((config, i) => (
+					<SlideInOnScroll
 						key={i}
-						className="flexCenterCenter pt-6 border-t-4 border-t-pinterest-light-brown text-3xl"
+						wrapperStyle="flexCenterCenter pt-6 border-t-4 border-t-pinterest-light-brown text-3xl"
+						slideFrom={config.slideFrom}
 					>
-						<p>{text}</p>
-					</div>
+						<p>{config.text}</p>
+					</SlideInOnScroll>
 				))}
 			</section>
 		</>

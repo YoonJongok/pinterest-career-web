@@ -42,6 +42,7 @@ export const FirstPageImages: Record<ImageTitle, CustomImageProps> = {
 		src: "/careers/home1/warsaw.jpg",
 		alt: "Modern Warsaw",
 		className: "min-h-[290px]",
+		priority: true,
 		position: {
 			top: -40,
 		},
@@ -63,6 +64,7 @@ export const FirstPageImages: Record<ImageTitle, CustomImageProps> = {
 		position: {
 			top: 30,
 		},
+		priority: true,
 	},
 };
 

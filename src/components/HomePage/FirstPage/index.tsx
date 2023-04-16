@@ -1,6 +1,5 @@
 import React from "react";
 import CustomImage from "../../CustomImage";
-import Button from "../../Button";
 import "twin.macro";
 import {
 	firstColumnImagesConfig,
@@ -8,10 +7,7 @@ import {
 	thirdColumnImagesConfig,
 } from "./FirstPage.config";
 
-const FirstPage: React.ForwardRefRenderFunction<HTMLDivElement> = (
-	props,
-	ref
-) => {
+const FirstPage: React.ForwardRefRenderFunction<HTMLDivElement> = (_, ref) => {
 	return (
 		<section
 			ref={ref}
@@ -23,7 +19,6 @@ const FirstPage: React.ForwardRefRenderFunction<HTMLDivElement> = (
 					Where sweeping skyscrapers and rich history unite in harmony <br />
 					Explore open positions.
 				</p>
-				<Button variant="secondary">Hello</Button>
 			</div>
 			<div tw="w-1/2 h-full flex justify-center items-center gap-3.5 space-x-3.5">
 				<div>
