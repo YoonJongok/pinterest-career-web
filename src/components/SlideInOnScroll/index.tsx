@@ -20,7 +20,7 @@ const SlideInOnScroll: FC<SlideInOnScrollProps> = ({
 	const onScroll = () => {
 		const elmPosition = elementRef.current?.getBoundingClientRect();
 		elmPosition && setScrollPosition(elmPosition.top);
-		if (elmPosition && elmPosition.top <= window.innerHeight * 0.5) {
+		if (elmPosition && elmPosition.top <= window.innerHeight * 0.6) {
 			setIsVisible(true);
 		} else {
 			setIsVisible(false);
